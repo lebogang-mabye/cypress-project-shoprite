@@ -1,0 +1,119 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-01-30T22:47:09.583Z",
+    "end": "2023-01-30T22:47:11.225Z",
+    "duration": 1642,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "feebdcbb-df52-4dda-8250-ea538f60d2f8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Test-T02-API.cy.js",
+      "file": "cypress\\e2e\\Test-T02-API.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9bcf871a-46df-44a3-8049-79f99dac5d0e",
+          "title": "Test-T02-API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Status check & write response to JSON file",
+              "fullTitle": "Test-T02-API Status check & write response to JSON file",
+              "timedOut": null,
+              "duration": 1231,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://swapi.dev/api/people/'\n}).then(res => {\n  expect(res.status).to.eq(200);\n  cy.writeFile('cypress/fixtures/peopleList.json', res.body); //Write the response to a file \n});",
+              "err": {},
+              "uuid": "46584061-b1c0-464e-b37f-9bdd93cf0d5a",
+              "parentUUID": "9bcf871a-46df-44a3-8049-79f99dac5d0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "R2-D2 skin colour Assertion",
+              "fullTitle": "Test-T02-API R2-D2 skin colour Assertion",
+              "timedOut": null,
+              "duration": 393,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('https://swapi.dev/api/people/').its('body').then(people => {\n  const r2d2 = people.results.find(person => person.name === 'R2-D2');\n  expect(r2d2.skin_color).to.equal('white, blue');\n});",
+              "err": {},
+              "uuid": "d99c6edb-94de-456f-bd16-c9059dd3fb51",
+              "parentUUID": "9bcf871a-46df-44a3-8049-79f99dac5d0e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "46584061-b1c0-464e-b37f-9bdd93cf0d5a",
+            "d99c6edb-94de-456f-bd16-c9059dd3fb51"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1624,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
